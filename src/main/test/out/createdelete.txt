@@ -1,0 +1,66 @@
+/*alarmtbPODelete*/
+public String deleteAlarmtblePOSql(AlarmtbPO alarmtbPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getAlarmtbPOMap(alarmtbPO);
+        return "DELETE FROM "+DatabaseTableNames._alarmtb+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*anchormapperPODelete*/
+public String deleteAnchormapperlePOSql(AnchormapperPO anchormapperPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getAnchormapperPOMap(anchormapperPO);
+        return "DELETE FROM "+DatabaseTableNames._anchormapper+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*bantbPODelete*/
+public String deleteBantblePOSql(BantbPO bantbPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getBantbPOMap(bantbPO);
+        return "DELETE FROM "+DatabaseTableNames._bantb+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*danmutbPODelete*/
+public String deleteDanmutblePOSql(DanmutbPO danmutbPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getDanmutbPOMap(danmutbPO);
+        return "DELETE FROM "+DatabaseTableNames._danmutb+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*infomanagetbPODelete*/
+public String deleteInfomanagetblePOSql(InfomanagetbPO infomanagetbPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getInfomanagetbPOMap(infomanagetbPO);
+        return "DELETE FROM "+DatabaseTableNames._infomanagetb+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*monitortbPODelete*/
+public String deleteMonitortblePOSql(MonitortbPO monitortbPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getMonitortbPOMap(monitortbPO);
+        return "DELETE FROM "+DatabaseTableNames._monitortb+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*notestPODelete*/
+public String deleteNotestlePOSql(NotestPO notestPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getNotestPOMap(notestPO);
+        return "DELETE FROM "+DatabaseTableNames._notest+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*reporttbPODelete*/
+public String deleteReporttblePOSql(ReporttbPO reporttbPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getReporttbPOMap(reporttbPO);
+        return "DELETE FROM "+DatabaseTableNames._reporttb+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*statistictbPODelete*/
+public String deleteStatistictblePOSql(StatistictbPO statistictbPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getStatistictbPOMap(statistictbPO);
+        return "DELETE FROM "+DatabaseTableNames._statistictb+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*usertbPODelete*/
+public String deleteUsertblePOSql(UsertbPO usertbPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getUsertbPOMap(usertbPO);
+        return "DELETE FROM "+DatabaseTableNames._usertb+"  WHERE "+String.join(",",returnKVString(map));
+    }
+/*youtiaoPODelete*/
+public String deleteYoutiaolePOSql(YoutiaoPO youtiaoPO) {
+        CheckPOnotNullMap checkPOnotNullMap = new CheckPOnotNullMap();
+        Map<String, Object> map = checkPOnotNullMap.getYoutiaoPOMap(youtiaoPO);
+        return "DELETE FROM "+DatabaseTableNames._youtiao+"  WHERE "+String.join(",",returnKVString(map));
+    }

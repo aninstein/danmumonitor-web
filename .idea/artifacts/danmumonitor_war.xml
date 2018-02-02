@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="danmumonitor:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="danmu-monitor.war">
+      <element id="artifact" artifact-name="danmumonitor:war exploded" />
+    </root>
+  </artifact>
+</component>

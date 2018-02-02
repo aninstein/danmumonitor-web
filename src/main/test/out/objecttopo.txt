@@ -1,0 +1,88 @@
+/* Object to alarmtbPO */
+public static List<AlarmtbPO> objectToAlarmtbPO(List<Object> objectList) {
+        List<AlarmtbPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((AlarmtbPO) object);
+        }
+        return list;
+    }
+/* Object to anchormapperPO */
+public static List<AnchormapperPO> objectToAnchormapperPO(List<Object> objectList) {
+        List<AnchormapperPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((AnchormapperPO) object);
+        }
+        return list;
+    }
+/* Object to bantbPO */
+public static List<BantbPO> objectToBantbPO(List<Object> objectList) {
+        List<BantbPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((BantbPO) object);
+        }
+        return list;
+    }
+/* Object to danmutbPO */
+public static List<DanmutbPO> objectToDanmutbPO(List<Object> objectList) {
+        List<DanmutbPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((DanmutbPO) object);
+        }
+        return list;
+    }
+/* Object to infomanagetbPO */
+public static List<InfomanagetbPO> objectToInfomanagetbPO(List<Object> objectList) {
+        List<InfomanagetbPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((InfomanagetbPO) object);
+        }
+        return list;
+    }
+/* Object to monitortbPO */
+public static List<MonitortbPO> objectToMonitortbPO(List<Object> objectList) {
+        List<MonitortbPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((MonitortbPO) object);
+        }
+        return list;
+    }
+/* Object to notestPO */
+public static List<NotestPO> objectToNotestPO(List<Object> objectList) {
+        List<NotestPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((NotestPO) object);
+        }
+        return list;
+    }
+/* Object to reporttbPO */
+public static List<ReporttbPO> objectToReporttbPO(List<Object> objectList) {
+        List<ReporttbPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((ReporttbPO) object);
+        }
+        return list;
+    }
+/* Object to statistictbPO */
+public static List<StatistictbPO> objectToStatistictbPO(List<Object> objectList) {
+        List<StatistictbPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((StatistictbPO) object);
+        }
+        return list;
+    }
+/* Object to usertbPO */
+public static List<UsertbPO> objectToUsertbPO(List<Object> objectList) {
+        List<UsertbPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((UsertbPO) object);
+        }
+        return list;
+    }
+/* Object to youtiaoPO */
+public static List<YoutiaoPO> objectToYoutiaoPO(List<Object> objectList) {
+        List<YoutiaoPO> list=new ArrayList<>();
+        for (Object object:objectList){
+            list.add((YoutiaoPO) object);
+        }
+        return list;
+    }

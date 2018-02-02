@@ -1,0 +1,117 @@
+/*alarmtb的字段名*/
+public static String _id="id";
+public static String _alarmname="alarmname";
+public static String _alarmroom="alarmroom";
+public static String _alarmcredit="alarmcredit";
+public static String _alarmtype="alarmtype";
+public static String _alarmtime="alarmtime";
+
+
+/*anchormapper的字段名*/
+public static String _id="id";
+public static String _anchorname="anchorname";
+public static String _anchorroom="anchorroom";
+public static String _anchortable="anchortable";
+
+
+/*bantb的字段名*/
+public static String _id="id";
+public static String _anchorname="anchorname";
+public static String _bantype="bantype";
+public static String _banhis="banhis";
+public static String _bantime="bantime";
+
+
+/*danmutb的字段名*/
+public static String _id="id";
+public static String _anchorname="anchorname";
+public static String _danmuall="danmuall";
+public static String _danmusex="danmusex";
+public static String _danmuabuse="danmuabuse";
+public static String _danmureact="danmureact";
+public static String _danmuvio="danmuvio";
+public static String _danmuother="danmuother";
+public static String _danmutime="danmutime";
+
+
+/*infomanagetb的字段名*/
+public static String _id="id";
+public static String _myindex="myindex";
+public static String _times="times";
+public static String _negtimes="negtimes";
+public static String _neg="neg";
+
+
+/*monitortb的字段名*/
+public static String _id="id";
+public static String _MAname="MAname";
+public static String _MAroom="MAroom";
+public static String _MAstate="MAstate";
+public static String _MApeople="MApeople";
+public static String _MAhis="MAhis";
+public static String _MAnow="MAnow";
+public static String _MAdmnum="MAdmnum";
+public static String _MAban="MAban";
+
+
+/*notest的字段名*/
+public static String _number="number";
+public static String _level="level";
+public static String _id="id";
+public static String _content="content";
+public static String _date="date";
+public static String _pos="pos";
+public static String _neg="neg";
+public static String _mark="mark";
+public static String _sum="sum";
+public static String _ratio="ratio";
+public static String _flag="flag";
+
+
+/*reporttb的字段名*/
+public static String _id="id";
+public static String _reportname="reportname";
+public static String _reportroom="reportroom";
+public static String _reportcredit="reportcredit";
+public static String _reporttype="reporttype";
+public static String _reporttime="reporttime";
+public static String _reporttext="reporttext";
+
+
+/*statistictb的字段名*/
+public static String _id="id";
+public static String _anchorroom="anchorroom";
+public static String _anchortype="anchortype";
+public static String _anchorsex="anchorsex";
+public static String _anchorabuse="anchorabuse";
+public static String _anchorreact="anchorreact";
+public static String _anchorvio="anchorvio";
+public static String _anchorother="anchorother";
+
+
+/*usertb的字段名*/
+public static String _id="id";
+public static String _username="username";
+public static String _userpassword="userpassword";
+public static String _usergrant="usergrant";
+public static String _userrealname="userrealname";
+public static String _usernick="usernick";
+public static String _usertel="usertel";
+public static String _useremail="useremail";
+public static String _userqiandao="userqiandao";
+
+
+/*youtiao的字段名*/
+public static String _id="id";
+public static String _userlevel="userlevel";
+public static String _userid="userid";
+public static String _dmcontent="dmcontent";
+public static String _dmdata="dmdata";
+public static String _pos="pos";
+public static String _neg="neg";
+public static String _dmsum="dmsum";
+public static String _mark="mark";
+public static String _ratio="ratio";
+public static String _flag="flag";
+
+

@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dmmonitor">
+    <output-path>$PROJECT_DIR$/out/artifacts/dmmonitor</output-path>
+    <root id="archive" name="dmmonitor.war" />
+  </artifact>
+</component>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--数据库连接模块-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/newdmmonitor"
+                        userId="root"
+                        password="aninstein">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--指定javabean生成的模块-->
+        <javaModelGenerator
+                targetPackage="com.aninstein.po"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--指定sql映射文件生成的位置-->
+        <sqlMapGenerator
+                targetPackage="mapper"
+                targetProject=".\src\main\resources\com">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--指定dao接口生成的位置-->
+        <javaClientGenerator
+                type="XMLMAPPER"
+                targetPackage="com.aninstein.mapper"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--指定表格的生成策略-->
+        <table tableName="alarmtb" domainObjectName="AlarmtbPO"></table>
+        <table tableName="anchormapper" domainObjectName="AnchormapperPO"></table>
+        <table tableName="bantb" domainObjectName="BantbPO"></table>
+        <table tableName="danmutb" domainObjectName="DanmutbPO"></table>
+        <table tableName="infomanagetb" domainObjectName="InfomanagetbPO"></table>
+        <table tableName="monitortb" domainObjectName="MonitortbPO"></table>
+        <table tableName="notest" domainObjectName="NotestPO"></table>
+        <table tableName="reporttb" domainObjectName="ReporttbPO"></table>
+        <table tableName="statistictb" domainObjectName="StatistictbPO"></table>
+        <table tableName="usertb" domainObjectName="UsertbPO"></table>
+        <table tableName="youtiao" domainObjectName="YoutiaoPO"></table>
+
+    </context>
+</generatorConfiguration>

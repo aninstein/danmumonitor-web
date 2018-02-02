@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <!--spring的配置，主要配置业务逻辑有关的东西,主要分为数据源配置、mybatis整合的配置、事务控制的配置-->
+
+
+    <!--====================数据源的配置=====================-->
+    <context:component-scan base-package="com.aninstein">
+        <!--不扫描控制器，其他都扫描-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>
+    </context:component-scan>
+    <!--引入外部的配置文件-->
+    <context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
+    <!--数据源的配置-->
+    <bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="${spring.datasource.jdbcUrl}"></property>
+        <property name="driverClass" value="${spring.datasource.driverClass}"></property>
+        <property name="user" value="${spring.datasource.user}"></property>
+        <property name="password" value="${spring.datasource.password}"></property>
+    </bean>
+    <!--====================================================-->
+
+
+    <!--====================mybatis整合的配置===================-->
+    <!--配置和mybatis的整合-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--指定数据源-->
+        <property name="dataSource" ref="pooledDataSource"></property>
+        <!--指定mybatis全局配置文件-->
+        <property name="configLocation" value="classpath:com/mybatis-config.xml"></property>
+        <!--指定mapper文件-->
+        <property name="mapperLocations" value="classpath*:com/mapper/*.xml"></property>
+    </bean>
+
+    <!--配置扫描器，将mybatis的接口实现加入到ioc容器当中-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--扫描所有dao包下的接口实现，加入到ioc容器当中-->
+        <property name="basePackage" value="com.teachCheckout.dao"></property>
+    </bean>
+
+    <!--配置一个可以执行批量操作的SqlSession-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+        <constructor-arg name="executorType" value="BATCH"></constructor-arg>
+    </bean>
+    <!--=========================================================-->
+
+
+
+
+    <!--=====================事务控制============================-->
+    <!--配置事务控制管理器-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--告诉管理器我们的数据源-->
+        <property name="dataSource" ref="pooledDataSource"></property>
+
+    </bean>
+    <!--有两种事务管理的办法：-->
+    <!--1、基于注解的事务管理-->
+    <!--2、基于xml配置文件的事务管理（这里用这种）-->
+    <aop:config>
+        <!--切入点表达式-->
+        <!--“* com.teachCheckout.service..*(..)”表示所有的类路径下的所有类的所有方法，不管多少参数，我们都想控制事务-->
+        <aop:pointcut id="txPoint" expression="execution(* com.aninstein.service..*(..))"></aop:pointcut>
+
+        <!--配置事务增强-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"></aop:advisor>
+    </aop:config>
+
+    <!--配置事务增强-->
+    <tx:advice id="txAdvice" transaction-manager="dataSourceTransactionManager">
+        <tx:attributes>
+            <!--这一句定义所有的方法事务都处理-->
+            <!--propagation：主要用来配置当前需要执行的方法，与当前是否有transaction之间的关系。-->
+            <!--rollback-for：事务回滚，Exception是抛出异常-->
+            <tx:method name="*" propagation="REQUIRED" rollback-for="Exception" />
+
+            <!--这一句的意思是所有以get开头的方法否处理事务，而且为制度模式，也就是都认为是查询-->
+            <!--<tx:method name="get*" read-only="true"/>-->
+        </tx:attributes>
+    </tx:advice>
+    <!--======================================================================-->
+
+    <!--======================配置常用的各种bean=======================-->
+    <!--json解析的objectMapper-->
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"></bean>
+
+    <!--在这添加需要读取的配置文件-->
+    <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="fileEncoding" value="utf-8"></property>
+        <property name="location">
+            <value>classpath:application.properties</value>
+        </property>
+    </bean>
+</beans>

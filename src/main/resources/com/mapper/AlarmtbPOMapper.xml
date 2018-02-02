@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aninstein.mapper.AlarmtbPOMapper">
+  <resultMap id="BaseResultMap" type="com.aninstein.po.AlarmtbPO">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="alarmname" jdbcType="VARCHAR" property="alarmname" />
+    <result column="alarmroom" jdbcType="VARCHAR" property="alarmroom" />
+    <result column="alarmcredit" jdbcType="DOUBLE" property="alarmcredit" />
+    <result column="alarmtype" jdbcType="VARCHAR" property="alarmtype" />
+    <result column="alarmtime" jdbcType="VARCHAR" property="alarmtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, alarmname, alarmroom, alarmcredit, alarmtype, alarmtime
+  </sql>
+  <select id="selectByExample" parameterType="com.aninstein.po.example.AlarmtbPOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from alarmtb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from alarmtb
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from alarmtb
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.aninstein.po.example.AlarmtbPOExample">
+    delete from alarmtb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aninstein.po.AlarmtbPO">
+    insert into alarmtb (id, alarmname, alarmroom, 
+      alarmcredit, alarmtype, alarmtime
+      )
+    values (#{id,jdbcType=INTEGER}, #{alarmname,jdbcType=VARCHAR}, #{alarmroom,jdbcType=VARCHAR}, 
+      #{alarmcredit,jdbcType=DOUBLE}, #{alarmtype,jdbcType=VARCHAR}, #{alarmtime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aninstein.po.AlarmtbPO">
+    insert into alarmtb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="alarmname != null">
+        alarmname,
+      </if>
+      <if test="alarmroom != null">
+        alarmroom,
+      </if>
+      <if test="alarmcredit != null">
+        alarmcredit,
+      </if>
+      <if test="alarmtype != null">
+        alarmtype,
+      </if>
+      <if test="alarmtime != null">
+        alarmtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="alarmname != null">
+        #{alarmname,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmroom != null">
+        #{alarmroom,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmcredit != null">
+        #{alarmcredit,jdbcType=DOUBLE},
+      </if>
+      <if test="alarmtype != null">
+        #{alarmtype,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmtime != null">
+        #{alarmtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aninstein.po.example.AlarmtbPOExample" resultType="java.lang.Long">
+    select count(*) from alarmtb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update alarmtb
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.alarmname != null">
+        alarmname = #{record.alarmname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarmroom != null">
+        alarmroom = #{record.alarmroom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarmcredit != null">
+        alarmcredit = #{record.alarmcredit,jdbcType=DOUBLE},
+      </if>
+      <if test="record.alarmtype != null">
+        alarmtype = #{record.alarmtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarmtime != null">
+        alarmtime = #{record.alarmtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update alarmtb
+    set id = #{record.id,jdbcType=INTEGER},
+      alarmname = #{record.alarmname,jdbcType=VARCHAR},
+      alarmroom = #{record.alarmroom,jdbcType=VARCHAR},
+      alarmcredit = #{record.alarmcredit,jdbcType=DOUBLE},
+      alarmtype = #{record.alarmtype,jdbcType=VARCHAR},
+      alarmtime = #{record.alarmtime,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aninstein.po.AlarmtbPO">
+    update alarmtb
+    <set>
+      <if test="alarmname != null">
+        alarmname = #{alarmname,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmroom != null">
+        alarmroom = #{alarmroom,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmcredit != null">
+        alarmcredit = #{alarmcredit,jdbcType=DOUBLE},
+      </if>
+      <if test="alarmtype != null">
+        alarmtype = #{alarmtype,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmtime != null">
+        alarmtime = #{alarmtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aninstein.po.AlarmtbPO">
+    update alarmtb
+    set alarmname = #{alarmname,jdbcType=VARCHAR},
+      alarmroom = #{alarmroom,jdbcType=VARCHAR},
+      alarmcredit = #{alarmcredit,jdbcType=DOUBLE},
+      alarmtype = #{alarmtype,jdbcType=VARCHAR},
+      alarmtime = #{alarmtime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aninstein.mapper.StatistictbPOMapper">
+  <resultMap id="BaseResultMap" type="com.aninstein.po.StatistictbPO">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="anchorroom" jdbcType="VARCHAR" property="anchorroom" />
+    <result column="anchortype" jdbcType="VARCHAR" property="anchortype" />
+    <result column="anchorsex" jdbcType="INTEGER" property="anchorsex" />
+    <result column="anchorabuse" jdbcType="INTEGER" property="anchorabuse" />
+    <result column="anchorreact" jdbcType="INTEGER" property="anchorreact" />
+    <result column="anchorvio" jdbcType="INTEGER" property="anchorvio" />
+    <result column="anchorother" jdbcType="INTEGER" property="anchorother" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, anchorroom, anchortype, anchorsex, anchorabuse, anchorreact, anchorvio, anchorother
+  </sql>
+  <select id="selectByExample" parameterType="com.aninstein.po.example.StatistictbPOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from statistictb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from statistictb
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from statistictb
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.aninstein.po.example.StatistictbPOExample">
+    delete from statistictb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aninstein.po.StatistictbPO">
+    insert into statistictb (id, anchorroom, anchortype, 
+      anchorsex, anchorabuse, anchorreact, 
+      anchorvio, anchorother)
+    values (#{id,jdbcType=INTEGER}, #{anchorroom,jdbcType=VARCHAR}, #{anchortype,jdbcType=VARCHAR}, 
+      #{anchorsex,jdbcType=INTEGER}, #{anchorabuse,jdbcType=INTEGER}, #{anchorreact,jdbcType=INTEGER}, 
+      #{anchorvio,jdbcType=INTEGER}, #{anchorother,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aninstein.po.StatistictbPO">
+    insert into statistictb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="anchorroom != null">
+        anchorroom,
+      </if>
+      <if test="anchortype != null">
+        anchortype,
+      </if>
+      <if test="anchorsex != null">
+        anchorsex,
+      </if>
+      <if test="anchorabuse != null">
+        anchorabuse,
+      </if>
+      <if test="anchorreact != null">
+        anchorreact,
+      </if>
+      <if test="anchorvio != null">
+        anchorvio,
+      </if>
+      <if test="anchorother != null">
+        anchorother,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="anchorroom != null">
+        #{anchorroom,jdbcType=VARCHAR},
+      </if>
+      <if test="anchortype != null">
+        #{anchortype,jdbcType=VARCHAR},
+      </if>
+      <if test="anchorsex != null">
+        #{anchorsex,jdbcType=INTEGER},
+      </if>
+      <if test="anchorabuse != null">
+        #{anchorabuse,jdbcType=INTEGER},
+      </if>
+      <if test="anchorreact != null">
+        #{anchorreact,jdbcType=INTEGER},
+      </if>
+      <if test="anchorvio != null">
+        #{anchorvio,jdbcType=INTEGER},
+      </if>
+      <if test="anchorother != null">
+        #{anchorother,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aninstein.po.example.StatistictbPOExample" resultType="java.lang.Long">
+    select count(*) from statistictb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update statistictb
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.anchorroom != null">
+        anchorroom = #{record.anchorroom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.anchortype != null">
+        anchortype = #{record.anchortype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.anchorsex != null">
+        anchorsex = #{record.anchorsex,jdbcType=INTEGER},
+      </if>
+      <if test="record.anchorabuse != null">
+        anchorabuse = #{record.anchorabuse,jdbcType=INTEGER},
+      </if>
+      <if test="record.anchorreact != null">
+        anchorreact = #{record.anchorreact,jdbcType=INTEGER},
+      </if>
+      <if test="record.anchorvio != null">
+        anchorvio = #{record.anchorvio,jdbcType=INTEGER},
+      </if>
+      <if test="record.anchorother != null">
+        anchorother = #{record.anchorother,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update statistictb
+    set id = #{record.id,jdbcType=INTEGER},
+      anchorroom = #{record.anchorroom,jdbcType=VARCHAR},
+      anchortype = #{record.anchortype,jdbcType=VARCHAR},
+      anchorsex = #{record.anchorsex,jdbcType=INTEGER},
+      anchorabuse = #{record.anchorabuse,jdbcType=INTEGER},
+      anchorreact = #{record.anchorreact,jdbcType=INTEGER},
+      anchorvio = #{record.anchorvio,jdbcType=INTEGER},
+      anchorother = #{record.anchorother,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aninstein.po.StatistictbPO">
+    update statistictb
+    <set>
+      <if test="anchorroom != null">
+        anchorroom = #{anchorroom,jdbcType=VARCHAR},
+      </if>
+      <if test="anchortype != null">
+        anchortype = #{anchortype,jdbcType=VARCHAR},
+      </if>
+      <if test="anchorsex != null">
+        anchorsex = #{anchorsex,jdbcType=INTEGER},
+      </if>
+      <if test="anchorabuse != null">
+        anchorabuse = #{anchorabuse,jdbcType=INTEGER},
+      </if>
+      <if test="anchorreact != null">
+        anchorreact = #{anchorreact,jdbcType=INTEGER},
+      </if>
+      <if test="anchorvio != null">
+        anchorvio = #{anchorvio,jdbcType=INTEGER},
+      </if>
+      <if test="anchorother != null">
+        anchorother = #{anchorother,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aninstein.po.StatistictbPO">
+    update statistictb
+    set anchorroom = #{anchorroom,jdbcType=VARCHAR},
+      anchortype = #{anchortype,jdbcType=VARCHAR},
+      anchorsex = #{anchorsex,jdbcType=INTEGER},
+      anchorabuse = #{anchorabuse,jdbcType=INTEGER},
+      anchorreact = #{anchorreact,jdbcType=INTEGER},
+      anchorvio = #{anchorvio,jdbcType=INTEGER},
+      anchorother = #{anchorother,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

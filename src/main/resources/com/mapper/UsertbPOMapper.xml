@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aninstein.mapper.UsertbPOMapper">
+  <resultMap id="BaseResultMap" type="com.aninstein.po.UsertbPO">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userpassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="usergrant" jdbcType="SMALLINT" property="usergrant" />
+    <result column="userrealname" jdbcType="VARCHAR" property="userrealname" />
+    <result column="usernick" jdbcType="VARCHAR" property="usernick" />
+    <result column="usertel" jdbcType="VARCHAR" property="usertel" />
+    <result column="useremail" jdbcType="VARCHAR" property="useremail" />
+    <result column="userqiandao" jdbcType="VARCHAR" property="userqiandao" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, username, userpassword, usergrant, userrealname, usernick, usertel, useremail, 
+    userqiandao
+  </sql>
+  <select id="selectByExample" parameterType="com.aninstein.po.example.UsertbPOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from usertb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from usertb
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from usertb
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.aninstein.po.example.UsertbPOExample">
+    delete from usertb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aninstein.po.UsertbPO">
+    insert into usertb (id, username, userpassword, 
+      usergrant, userrealname, usernick, 
+      usertel, useremail, userqiandao
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
+      #{usergrant,jdbcType=SMALLINT}, #{userrealname,jdbcType=VARCHAR}, #{usernick,jdbcType=VARCHAR}, 
+      #{usertel,jdbcType=VARCHAR}, #{useremail,jdbcType=VARCHAR}, #{userqiandao,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aninstein.po.UsertbPO">
+    insert into usertb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="userpassword != null">
+        userpassword,
+      </if>
+      <if test="usergrant != null">
+        usergrant,
+      </if>
+      <if test="userrealname != null">
+        userrealname,
+      </if>
+      <if test="usernick != null">
+        usernick,
+      </if>
+      <if test="usertel != null">
+        usertel,
+      </if>
+      <if test="useremail != null">
+        useremail,
+      </if>
+      <if test="userqiandao != null">
+        userqiandao,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrant != null">
+        #{usergrant,jdbcType=SMALLINT},
+      </if>
+      <if test="userrealname != null">
+        #{userrealname,jdbcType=VARCHAR},
+      </if>
+      <if test="usernick != null">
+        #{usernick,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel != null">
+        #{usertel,jdbcType=VARCHAR},
+      </if>
+      <if test="useremail != null">
+        #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="userqiandao != null">
+        #{userqiandao,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aninstein.po.example.UsertbPOExample" resultType="java.lang.Long">
+    select count(*) from usertb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update usertb
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userpassword != null">
+        userpassword = #{record.userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usergrant != null">
+        usergrant = #{record.usergrant,jdbcType=SMALLINT},
+      </if>
+      <if test="record.userrealname != null">
+        userrealname = #{record.userrealname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usernick != null">
+        usernick = #{record.usernick,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertel != null">
+        usertel = #{record.usertel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useremail != null">
+        useremail = #{record.useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userqiandao != null">
+        userqiandao = #{record.userqiandao,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update usertb
+    set id = #{record.id,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      userpassword = #{record.userpassword,jdbcType=VARCHAR},
+      usergrant = #{record.usergrant,jdbcType=SMALLINT},
+      userrealname = #{record.userrealname,jdbcType=VARCHAR},
+      usernick = #{record.usernick,jdbcType=VARCHAR},
+      usertel = #{record.usertel,jdbcType=VARCHAR},
+      useremail = #{record.useremail,jdbcType=VARCHAR},
+      userqiandao = #{record.userqiandao,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aninstein.po.UsertbPO">
+    update usertb
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userpassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrant != null">
+        usergrant = #{usergrant,jdbcType=SMALLINT},
+      </if>
+      <if test="userrealname != null">
+        userrealname = #{userrealname,jdbcType=VARCHAR},
+      </if>
+      <if test="usernick != null">
+        usernick = #{usernick,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel != null">
+        usertel = #{usertel,jdbcType=VARCHAR},
+      </if>
+      <if test="useremail != null">
+        useremail = #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="userqiandao != null">
+        userqiandao = #{userqiandao,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aninstein.po.UsertbPO">
+    update usertb
+    set username = #{username,jdbcType=VARCHAR},
+      userpassword = #{userpassword,jdbcType=VARCHAR},
+      usergrant = #{usergrant,jdbcType=SMALLINT},
+      userrealname = #{userrealname,jdbcType=VARCHAR},
+      usernick = #{usernick,jdbcType=VARCHAR},
+      usertel = #{usertel,jdbcType=VARCHAR},
+      useremail = #{useremail,jdbcType=VARCHAR},
+      userqiandao = #{userqiandao,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
