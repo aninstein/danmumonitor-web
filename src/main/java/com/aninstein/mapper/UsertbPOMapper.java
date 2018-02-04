@@ -4,7 +4,9 @@ import com.aninstein.po.UsertbPO;
 import com.aninstein.po.example.UsertbPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface UsertbPOMapper {
     long countByExample(UsertbPOExample example);
 

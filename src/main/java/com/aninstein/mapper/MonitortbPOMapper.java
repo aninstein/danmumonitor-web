@@ -4,7 +4,9 @@ import com.aninstein.po.MonitortbPO;
 import com.aninstein.po.example.MonitortbPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface MonitortbPOMapper {
     long countByExample(MonitortbPOExample example);
 

@@ -4,7 +4,9 @@ import com.aninstein.po.BantbPO;
 import com.aninstein.po.example.BantbPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface BantbPOMapper {
     long countByExample(BantbPOExample example);
 

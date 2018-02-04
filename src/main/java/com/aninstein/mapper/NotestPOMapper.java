@@ -4,7 +4,9 @@ import com.aninstein.po.NotestPO;
 import com.aninstein.po.example.NotestPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface NotestPOMapper {
     long countByExample(NotestPOExample example);
 

@@ -20,7 +20,7 @@ public class MapperTest {
     @Test
     public void testCRUD(){
 
-
+        System.out.println(usertbPOMapper);
 
     }
 }

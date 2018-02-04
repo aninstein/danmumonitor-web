@@ -3,17 +3,17 @@ package com.aninstein.util;
 
 public class DatabaseTableNames {
 
-	static String _dataBaseName="newdmmonitor";
+	public static String _dataBaseName="newdmmonitor";
 
-	static String _alarmtb="alarmtb";
-	static String _anchormapper="anchormapper";
-	static String _bantb="bantb";
-	static String _danmutb="danmutb";
-	static String _infomanagetb="infomanagetb";
-	static String _monitortb="monitortb";
-	static String _notest="notest";
-	static String _reporttb="reporttb";
-	static String _statistictb="statistictb";
-	static String _usertb="usertb";
-	static String _youtiao="youtiao";
+	public static String _alarmtb="alarmtb";
+	public static String _anchormapper="anchormapper";
+	public static String _bantb="bantb";
+	public static String _danmutb="danmutb";
+	public static String _infomanagetb="infomanagetb";
+	public static String _monitortb="monitortb";
+	public static String _notest="notest";
+	public static String _reporttb="reporttb";
+	public static String _statistictb="statistictb";
+	public static String _usertb="usertb";
+	public static String _youtiao="youtiao";
 }

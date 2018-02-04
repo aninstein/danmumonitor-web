@@ -4,7 +4,9 @@ import com.aninstein.po.StatistictbPO;
 import com.aninstein.po.example.StatistictbPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface StatistictbPOMapper {
     long countByExample(StatistictbPOExample example);
 

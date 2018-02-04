@@ -4,7 +4,9 @@ import com.aninstein.po.AnchormapperPO;
 import com.aninstein.po.example.AnchormapperPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface AnchormapperPOMapper {
     long countByExample(AnchormapperPOExample example);
 

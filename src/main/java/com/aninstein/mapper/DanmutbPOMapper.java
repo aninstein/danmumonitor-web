@@ -4,7 +4,9 @@ import com.aninstein.po.DanmutbPO;
 import com.aninstein.po.example.DanmutbPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface DanmutbPOMapper {
     long countByExample(DanmutbPOExample example);
 

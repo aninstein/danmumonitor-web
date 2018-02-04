@@ -4,7 +4,9 @@ import com.aninstein.po.YoutiaoPO;
 import com.aninstein.po.example.YoutiaoPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface YoutiaoPOMapper {
     long countByExample(YoutiaoPOExample example);
 

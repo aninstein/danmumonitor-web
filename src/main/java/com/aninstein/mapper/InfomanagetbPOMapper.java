@@ -4,7 +4,9 @@ import com.aninstein.po.InfomanagetbPO;
 import com.aninstein.po.example.InfomanagetbPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface InfomanagetbPOMapper {
     long countByExample(InfomanagetbPOExample example);
 

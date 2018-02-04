@@ -4,7 +4,9 @@ import com.aninstein.po.ReporttbPO;
 import com.aninstein.po.example.ReporttbPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface ReporttbPOMapper {
     long countByExample(ReporttbPOExample example);
 
